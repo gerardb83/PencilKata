@@ -17,5 +17,15 @@ public class AppTest {
 		assertEquals(expected, actual);
 	}
 	
+	@Test
+	public void whenPencilWritesMoreItAddsToExistingSentence() {
+		Pencil pencil = new Pencil();
+		Paper paper = new Paper();
+		pencil.write("Test sentence", paper);
+		pencil.write(". Next test sentence.", paper);
+		String actual = paper.getText();
+		String expected = "Test sentence. Next test sentence.";
+		assertEquals(expected, actual);
+	}
 	
 }
