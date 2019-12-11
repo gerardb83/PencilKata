@@ -28,4 +28,13 @@ public class AppTest {
 		assertEquals(expected, actual);
 	}
 	
+	@Test
+	public void whenPencilWritesALowercaseLetterItsPointDegradesByOne() {
+		Pencil pencil = new Pencil(5);
+		Paper paper = new Paper();
+		pencil.write("ee", paper);
+		int actual = pencil.getPoint();
+		int expected = 3;
+		assertEquals(expected, actual);
+	}
 }
