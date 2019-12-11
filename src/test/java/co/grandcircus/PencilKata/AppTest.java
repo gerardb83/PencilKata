@@ -6,11 +6,16 @@ import org.junit.jupiter.api.Test;
 
 public class AppTest {
    
+
 	@Test
-    public void whenPencilWritesTextItStoresWrittenText() {
-    	Pencil pencil = new Pencil();
-    	String actual = pencil.write("Test sentence");
-    	String expected = "Test sentence";
-        assertEquals(expected, actual);
-    }
+	public void whenPencilWritesOnPaperItStoresTheText() {
+		Pencil pencil = new Pencil();
+		Paper paper = new Paper();
+		pencil.write("Test sentence", paper);
+		String actual = paper.getText();
+		String expected = "Test sentence";
+		assertEquals(expected, actual);
+	}
+	
+	
 }

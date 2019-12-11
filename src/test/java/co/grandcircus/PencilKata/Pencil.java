@@ -2,8 +2,8 @@ package co.grandcircus.PencilKata;
 
 public class Pencil {
 
-	public String write(String string) {
-		return string;
+	public void write(String string, Paper paper) {
+		paper.addString(string);
 	}
 
 }
