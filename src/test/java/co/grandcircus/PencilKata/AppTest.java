@@ -57,7 +57,12 @@ public class AppTest {
 		pencil.sharpen();
 		int actual = pencil.getPoint();
 		int expected = 3;
+		pencil.write("more", paper);
+		String actual2 = paper.getText();
+		String expected2 = "tex mor ";
 		assertEquals(expected, actual);
+		assertEquals(expected2, actual2);
+		
 	}
 	
 	
