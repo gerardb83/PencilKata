@@ -2,17 +2,30 @@ package co.grandcircus.PencilKata;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
    
+	Pencil pencil3;
+	Pencil pencil5;
+	Pencil pencil14;
+	Pencil pencil35;
+	Paper paper;
+	
+	@BeforeEach
+	public void setup() {
+		pencil3 = new Pencil(3);
+		pencil5 = new Pencil(5);
+		pencil14 = new Pencil(14);
+		pencil35 = new Pencil(35);
+		paper = new Paper();
+	}
 	
 
 	@Test
 	public void whenPencilWritesOnPaperItStoresTheText() {
-		Pencil pencil = new Pencil(14);
-		Paper paper = new Paper();
-		pencil.write("Test sentence", paper);
+		pencil14.write("Test sentence", paper);
 		String actual = paper.getText();
 		String expected = "Test sentence";
 		assertEquals(expected, actual);
@@ -20,10 +33,8 @@ public class AppTest {
 	
 	@Test
 	public void whenPencilWritesMoreItAddsToExistingSentence() {
-		Pencil pencil = new Pencil(35);
-		Paper paper = new Paper();
-		pencil.write("Test sentence", paper);
-		pencil.write(". Next test sentence.", paper);
+		pencil35.write("Test sentence", paper);
+		pencil35.write(". Next test sentence.", paper);
 		String actual = paper.getText();
 		String expected = "Test sentence. Next test sentence.";
 		assertEquals(expected, actual);
@@ -31,19 +42,15 @@ public class AppTest {
 	
 	@Test
 	public void whenPencilWritesALowercaseLetterItsPointDegradesByOne() {
-		Pencil pencil = new Pencil(5);
-		Paper paper = new Paper();
-		pencil.write("ee", paper);
-		int actual = pencil.getPoint();
+		pencil5.write("ee", paper);
+		int actual = pencil5.getPoint();
 		int expected = 3;
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void whenPencilWritesWithNoPointItWritesSpaces() {
-		Pencil pencil = new Pencil(3);
-		Paper paper = new Paper();
-		pencil.write("text", paper);
+		pencil3.write("text", paper);
 		String actual = paper.getText();
 		String expected = "tex ";
 		assertEquals(expected, actual);
@@ -51,18 +58,15 @@ public class AppTest {
 	
 	@Test
 	public void whenPencilIsSharpenedItRegainsItPoint() {
-		Pencil pencil = new Pencil(3);
-		Paper paper = new Paper();
-		pencil.write("text", paper);
-		pencil.sharpen();
-		int actual = pencil.getPoint();
+		pencil3.write("text", paper);
+		pencil3.sharpen();
+		int actual = pencil3.getPoint();
 		int expected = 3;
-		pencil.write("more", paper);
+		pencil3.write("more", paper);
 		String actual2 = paper.getText();
 		String expected2 = "tex mor ";
 		assertEquals(expected, actual);
-		assertEquals(expected2, actual2);
-		
+		assertEquals(expected2, actual2);	
 	}
 	
 	
