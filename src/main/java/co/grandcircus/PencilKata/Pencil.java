@@ -3,6 +3,7 @@ package co.grandcircus.PencilKata;
 public class Pencil {
 
 	private int point;
+	private int originalPoint;
 	private String letters = "";
 	private String spaces = "";
 
@@ -12,6 +13,7 @@ public class Pencil {
 
 	public Pencil(int point) {
 		this.point = point;
+		this.originalPoint = point;
 	}
 
 	public void write(String string, Paper paper) {
@@ -42,6 +44,10 @@ public class Pencil {
 
 	public boolean isSharp() {
 		return point > 0;
+	}
+
+	public void sharpen() {
+		point = originalPoint;
 	}
 
 }

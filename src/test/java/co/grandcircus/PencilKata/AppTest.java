@@ -48,4 +48,17 @@ public class AppTest {
 		String expected = "tex ";
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void whenPencilIsSharpenedItRegainsItPoint() {
+		Pencil pencil = new Pencil(3);
+		Paper paper = new Paper();
+		pencil.write("text", paper);
+		pencil.sharpen();
+		int actual = pencil.getPoint();
+		int expected = 3;
+		assertEquals(expected, actual);
+	}
+	
+	
 }
