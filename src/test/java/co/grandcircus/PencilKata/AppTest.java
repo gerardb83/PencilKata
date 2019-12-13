@@ -69,5 +69,14 @@ public class AppTest {
 		assertEquals(expected2, actual2);	
 	}
 	
+	@Test
+	public void whenEraserErasesWordItErasesThatWord() {
+		pencil14.write("text to go", paper);
+		pencil14.erase("to", paper);
+		String actual = paper.getText();
+		String expected = "text    go";
+		assertEquals(expected, actual);
+	}
+	
 	
 }

@@ -7,6 +7,10 @@ public class Paper {
 	public void addString(String string) {
 		text += string;
 	}
+	
+	public void resetString(String string) {
+		text = string;
+	}
 
 	public String getText() {
 		return text;

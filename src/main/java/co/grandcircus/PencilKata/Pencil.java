@@ -50,4 +50,22 @@ public class Pencil {
 		point = originalPoint;
 	}
 
+	public void erase(String toReplace, Paper paper) {
+		String originalText = paper.getText();
+		int start = originalText.lastIndexOf(toReplace);
+		StringBuilder builder = new StringBuilder();
+		builder.append(originalText.substring(0, start));
+		builder.append(getNewSpaces(toReplace));
+		builder.append(originalText.substring(start + toReplace.length()));
+		paper.resetString(builder.toString());
+	}
+	
+	public String getNewSpaces(String string) {
+		String newSpaces = "";
+		for (int i = 0; i < string.length(); i++) {
+			newSpaces += " ";
+		}
+		return newSpaces;
+	}
+
 }
