@@ -78,5 +78,12 @@ public class AppTest {
 		assertEquals(expected, actual);
 	}
 	
-	
+	@Test
+	public void whenEraserErasesWordItErasesLastInstanceOfThatWord() {
+		pencil35.write("text to go go yeah", paper);
+		pencil35.erase("go", paper);
+		String actual = paper.getText();
+		String expected = "text to go    yeah";
+		assertEquals(expected, actual);
+	}
 }
